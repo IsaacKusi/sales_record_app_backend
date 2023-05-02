@@ -6,5 +6,5 @@ class SaleItemserializer(serializers.ModelSerializer):
     class Meta:
         model = SaleItem
         fields=(
-            'date', 'amount','item_id','user_id'
+            'date_str', 'amount','item_id','user_id'
         )
