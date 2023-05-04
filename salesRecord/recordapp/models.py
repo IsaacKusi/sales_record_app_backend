@@ -10,6 +10,10 @@ class SaleItem(models.Model):
     item_id = models.IntegerField()
     user_id = models.IntegerField()
 
+    def __str__(self):
+        return self.date_str
+
+
 
 
 
