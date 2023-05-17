@@ -7,6 +7,7 @@ from .serializers import SaleItemserializer
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from recordapp.models import SaleItem
+from rest_framework.permissions import IsAuthenticated
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
@@ -21,6 +22,7 @@ class MyTokenObtainPairView(TokenObtainPairView):
 
 
 class GetSalesSerializer(APIView):
+    permission_classes = (IsAuthenticated,)
     def get(self, request, user_id):
         qs = SaleItem.objects.filter(user_id = user_id)
         serializer= SaleItemserializer(qs, many=True)
